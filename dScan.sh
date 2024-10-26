@@ -71,3 +71,4 @@ mv $OutputFilename.txt ./Outputs
 
 echo -e "${GREEN}[SUCCESS]${WHITE} Directory scanning complete."
 echo -e "${YELLOW}[INFO]${WHITE} The results for this scan can be viewed over at ./Outputs/${OutputFilename}.txt." && echo ""
+exit 0
