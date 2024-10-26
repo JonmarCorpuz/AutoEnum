@@ -30,13 +30,13 @@ echo '''
 ######################################## ARGUMENTS CHECK ########################################
 
 # Check if the user executed the script correctly
-while getopts ":u:" opt; do
+while getopts ":T:" opt; do
     case $opt in
-        u) target_url="$OPTARG"
+        T) target_url="$OPTARG"
         ;;
-        \?) echo -e "${RED}[ERROR 1]${WHITE} Usage: ./dScan -u <TARGET_URL>" && echo "" &&  exit 1
+        \?) echo -e "${RED}[ERROR 1]${WHITE} Usage: ./dScan -T <TARGET_URL>" && echo "" &&  exit 1
         ;;
-        :) echo -e "${RED}[ERROR 2]${WHITE} Usage: ./dScan -u <TARGET_URL>" && echo "" && exit 1
+        :) echo -e "${RED}[ERROR 2]${WHITE} Usage: ./dScan -T <TARGET_URL>" && echo "" && exit 1
         ;;
     esac
 done
@@ -44,7 +44,7 @@ done
 # Check if the user provided only the required values when executing the script
 if [ $OPTIND -ne 3 ]; 
 then
-    echo -e "${RED}[ERROR 3]${WHITE} Usage: ./dScan -u <TARGET_URL>" && echo "" &&  exit 1
+    echo -e "${RED}[ERROR 3]${WHITE} Usage: ./dScan -T <TARGET_URL>" && echo "" &&  exit 1
 fi
 
 ####################################### GATHER USER INPUT #######################################
