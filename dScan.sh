@@ -67,10 +67,7 @@ else
 fi
 
 if dirb $2 -R -o $OutputFilename.txt;
-then
-    echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo ""
-else
-    echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
-fi
+mv $OutputFilename.txt ./Outputs
 
-mv $OutputFilename.txt ./Outputs/
+echo -e "${GREEN}[SUCCESS]${WHITE} Directory scanning complete."
+echo -e "${GREEN}[SUCCESS]${WHITE} The results for this scan can be viewed over at ./Outputs/${OutputFilename}.txt." && echo ""
