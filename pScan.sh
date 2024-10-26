@@ -59,7 +59,7 @@ else
     sudo apt -y install nmap &> /dev/null
 fi
 
-if nmap $2 -sV -sC -oG pScan.txt &> /dev/null;
+if nmap $2 -sV -sC -oN pScan.txt &> /dev/null;
 then
     echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
 else
