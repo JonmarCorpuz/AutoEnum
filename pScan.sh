@@ -14,6 +14,9 @@ ALWAYS_TRUE=true
 # Regex
 Integer='^[0-9]+$'
 
+Replace="/"
+ReplaceWith="range"
+
 ########################################### OVERVIEW ############################################
 
 echo '''
@@ -32,9 +35,9 @@ echo '''
 # Check if the user executed the script correctly
 while getopts ":t:T:" opt; do
     case $opt in
-        t) target_range="$OPTARG"
+        t) OutputFilename="${OPTARG/${Replace}/range}"
         ;;
-        T) target_address="$OPTARG"
+        T) OutputFilename="pScan"$2".txt"
         ;;
         \?) echo -e "${RED}[ERROR 1]${WHITE} Usage: ./PortScan {-t <TARGET_RANGE>|-T <TARGET_ADDRESS>}" && echo "" &&  exit 1
         ;;
@@ -50,6 +53,11 @@ then
 fi
 
 # Check if the provided address or address range is valied
+if [[ "$2" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] || [[ "$2" =~ ^(((25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|1?[0-9][0-9]?))(\/([8-9]|[1-2][0-9]|3[0-2]))([^0-9.]|$) ]]; then
+  echo "success"
+else
+  echo "fail"
+fi
 
 ####################################### PREQUESITES CHECK #######################################
 
@@ -63,22 +71,12 @@ fi
 
 ########################################### PORT SCAN ###########################################
 
-if -T;
+#
+if nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
 then
-
-    #
-    OutputFilename="pScan"$2".txt"
-
-    #
-    if nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
-    then
-        echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
-    else
-        echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
-    fi
-
+    echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
 else
-
+    echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
 fi
 
-mv $OutputFilename ./Outputs
+mv $OutputFilename.txt ./Outputs
