@@ -49,6 +49,18 @@ then
     echo -e "${RED}[ERROR 3]${WHITE} Usage: ./PortScan {-t <TARGET_RANGE>|-T <TARGET_ADDRESS>}" && echo "" &&  exit 1
 fi
 
+#
+while [[ $ALWAYS_TRUE=true ]];
+do 
+    OutputFilename="pScan"${RANDOM:0:2}".txt"
+
+    #
+    if ! cat ./Outputs/$OutputFilename &> /dev/null;
+    then
+        break
+    fi 
+done
+
 ####################################### GATHER USER INPUT #######################################
 
 if nmap --version &> /dev/null;
@@ -59,9 +71,11 @@ else
     sudo apt -y install nmap &> /dev/null
 fi
 
-if nmap $2 -sV -sC -oN pScan.txt &> /dev/null;
+if nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
 then
     echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
 else
     echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
 fi
+
+mv $OutputFilename ./Outputs
