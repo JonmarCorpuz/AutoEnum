@@ -14,7 +14,7 @@ ALWAYS_TRUE=true
 # Regex
 Integer='^[0-9]+$'
 
-######################################### REQUIREMENTS ##########################################
+########################################### OVERVIEW ############################################
 
 echo '''
  ________  ________  ________  ________  ________      
@@ -49,19 +49,9 @@ then
     echo -e "${RED}[ERROR 3]${WHITE} Usage: ./PortScan {-t <TARGET_RANGE>|-T <TARGET_ADDRESS>}" && echo "" &&  exit 1
 fi
 
-#
-while [[ $ALWAYS_TRUE=true ]];
-do 
-    OutputFilename="pScan"${RANDOM:0:2}".txt"
+# Check if the provided address or address range is valied
 
-    #
-    if ! cat ./Outputs/$OutputFilename &> /dev/null;
-    then
-        break
-    fi 
-done
-
-####################################### GATHER USER INPUT #######################################
+####################################### PREQUESITES CHECK #######################################
 
 if nmap --version &> /dev/null;
 then
@@ -71,11 +61,24 @@ else
     sudo apt -y install nmap &> /dev/null
 fi
 
-if nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
+########################################### PORT SCAN ###########################################
+
+if -T;
 then
-    echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
+
+    #
+    OutputFilename="pScan"$2".txt"
+
+    #
+    if nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
+    then
+        echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
+    else
+        echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
+    fi
+
 else
-    echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
+
 fi
 
 mv $OutputFilename ./Outputs
