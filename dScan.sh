@@ -30,9 +30,9 @@ echo '''
 ######################################## ARGUMENTS CHECK ########################################
 
 # Check if the user executed the script correctly
-while getopts ":t:T:" opt; do
+while getopts ":u:" opt; do
     case $opt in
-        t) target_url="$OPTARG"
+        u) target_url="$OPTARG"
         ;;
         \?) echo -e "${RED}[ERROR 1]${WHITE} Usage: ./dScan -u <TARGET_URL>" && echo "" &&  exit 1
         ;;
