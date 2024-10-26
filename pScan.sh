@@ -77,5 +77,5 @@ nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
 mv $OutputFilename.txt ./Outputs
 
 echo -e "${GREEN}[SUCCESS]${WHITE} Port scanning complete."
-echo -e "${GREEN}[SUCCESS]${WHITE} The results for this scan can be viewed over at ./Outputs/${OutputFilename}.txt" && echo "" 
+echo -e "${YELLOW}[INFO]${WHITE} The results for this scan can be viewed over at ./Outputs/${OutputFilename}.txt" && echo "" 
 exit 0
