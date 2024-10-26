@@ -20,8 +20,8 @@ Replace=""
 ######################################### REQUIREMENTS ##########################################
 
 echo '''
-       ,,                                          
-     `7MM   .M"""bgd                               
+      7MM                                          
+       MM   .M"""bgd                               
        MM   MI    "Y                               
   ,M""bMM   MMb.      ,p6"bo   ,6"Yb.  `7MMpMMMb.  
 ,AP    MM    `YMMNq. 6M   OO  8)   MM    MM    MM  
