@@ -62,7 +62,7 @@ if dirb --version &> /dev/null;
 then
     echo -e "${GREEN}[SUCCESS]${WHITE} Dirb is already installed." && echo "" 
 else
-    echo -e "${GREEN}[YELLOW]${WHITE} Installing Dirb." && echo ""
+    echo -e "${YELLOW}[REQUIRED]${WHITE} Installing Dirb." && echo ""
     sudo apt -y install dirb &> /dev/null
 fi
 
