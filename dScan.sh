@@ -66,7 +66,7 @@ else
     sudo apt -y install dirb &> /dev/null
 fi
 
-if dirb $2 -R -o $OutputFilename.txt;
+if dirb $2 -o $OutputFilename.txt;
 mv $OutputFilename.txt ./Outputs
 
 echo -e "${GREEN}[SUCCESS]${WHITE} Directory scanning complete."
