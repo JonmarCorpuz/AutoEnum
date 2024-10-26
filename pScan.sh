@@ -65,7 +65,7 @@ if nmap --version &> /dev/null;
 then
     echo -e "${GREEN}[SUCCESS]${WHITE} Nmap is already installed." && echo "" 
 else
-    echo -e "${GREEN}[YELLOW]${WHITE} Installing Nmap." && echo ""
+    echo -e "${YELLOW}[REQUIRED]${WHITE} Installing Nmap." && echo ""
     sudo apt -y install nmap &> /dev/null
 fi
 
