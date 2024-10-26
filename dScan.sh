@@ -54,10 +54,10 @@ then
     echo -e "${GREEN}[SUCCESS]${WHITE} Dirb is already installed." && echo "" 
 else
     echo -e "${GREEN}[YELLOW]${WHITE} Installing Dirb." && echo ""
-    sudo apt -y install Dirb &> /dev/null
+    sudo apt -y install dirb &> /dev/null
 fi
 
-if dirb $3 -R -o dScan.txt &> /dev/null;
+if dirb $2 -R -o dScan.txt;
 then
     echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo ""
 else
