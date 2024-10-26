@@ -32,9 +32,7 @@ echo '''
 # Check if the user executed the script correctly
 while getopts ":t:T:" opt; do
     case $opt in
-        t) target_range="$OPTARG"
-        ;;
-        T) target_address="$OPTARG"
+        t) target_url="$OPTARG"
         ;;
         \?) echo -e "${RED}[ERROR 1]${WHITE} Usage: ./dScan -u <TARGET_URL>" && echo "" &&  exit 1
         ;;
@@ -59,9 +57,9 @@ else
     sudo apt -y install Dirb &> /dev/null
 fi
 
-if ping $3 &> /dev/null;
+if dirb $3 -R -o dScan.txt &> /dev/null;
 then
-    echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
+    echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo ""
 else
     echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
 fi
