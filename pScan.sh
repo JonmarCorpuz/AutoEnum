@@ -73,10 +73,8 @@ fi
 
 #
 if nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
-then
-    echo -e "${GREEN}[SUCCESS]${WHITE} YES." && echo "" 
-else
-    echo -e "${GREEN}[YELLOW]${WHITE} NAH." && echo ""
-fi
 
 mv $OutputFilename.txt ./Outputs
+
+echo -e "${GREEN}[SUCCESS]${WHITE} Port scanning complete."
+echo -e "${GREEN}[SUCCESS]${WHITE} The results for this scan can be viewed over at ./Outputs/${OutputFilename}.txt." && echo "" 
