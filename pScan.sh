@@ -37,7 +37,7 @@ while getopts ":t:T:" opt; do
     case $opt in
         t) OutputFilename="${OPTARG/${Replace}/range}"
         ;;
-        T) OutputFilename="pScan"$2".txt"
+        T) OutputFilename="pScan"$2
         ;;
         \?) echo -e "${RED}[ERROR 1]${WHITE} Usage: ./PortScan {-t <TARGET_RANGE>|-T <TARGET_ADDRESS>}" && echo "" &&  exit 1
         ;;
