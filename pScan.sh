@@ -72,7 +72,7 @@ fi
 ########################################### PORT SCAN ###########################################
 
 #
-nmap $2 -sV -sC -oN $OutputFilename.txt &> /dev/null;
+nmap $2 -sV -sC -oN $OutputFilename.txt -oG grep.$OutputFilename.txt &> /dev/null;
 
 mv $OutputFilename.txt ./Outputs
 
