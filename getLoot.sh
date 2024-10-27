@@ -31,8 +31,7 @@ Ybmmmdd
 #
 cat ./Outputs/grep*.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >> ScannedHosts.txt
 
-# Remove network address
-
+#
 if [ -s ScannedHosts.txt ]; then
     # The file is not-empty.
     while read Host;
@@ -51,13 +50,22 @@ fi
 # Check if anonymous login is allowed on FTP
 while read Host;
 do
-    #
-    wget -m --no-passive ftp://anonymous:anonymous@$Host
+
+    # Check FTP is reachable on target machine
+    if nmap -p 21 $Host | grep "open";
+    then
+        #
+        wget -m --no-passive ftp://anonymous:anonymous@$Host &> /dev/null
+        echo -e "${GREEN}[FTP]${WHITE} Some files were extracted from $Host."
+    else
+        echo -e "${RED}[FTP]${WHITE} FTP wasn't detected on $Host." 
+    fi
     
     #
     mv $Host Loot/
 done < TargetHosts.txt
 
 # Cleanup
+echo -e "${YELLOW}[WARNING]${WHITE} Removing temporary files"
 rm ScannedHosts.txt
 rm TargetHosts.txt
