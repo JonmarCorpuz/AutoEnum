@@ -1,16 +1,18 @@
+#!/bin/bash
+
 #
-cat ./Outputs/grep*.txt | grep "Host" > ScannedHosts.txt
+cat ./Outputs/grep*.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >>
 
 if [ -s ScannedHosts.txt ]; then
     # The file is not-empty.
-    # awk "{print $2}" ScannedHosts.txt
     while read Host;
     do
-        HostAddress=$(echo $Host | awk  "{print $2}")
-
-        if ! cat ScannedHosts.txt | grep -q $HostAddress;
+        echo $Host
+        #
+        if ! cat TargetHosts.txt | grep -q $Host;
         then
-            echo "$HostAddress" >> TargetHosts.txt
+            echo "LMAO"
+            echo $Host >> TargetHosts.txt
         fi
     done < ScannedHosts.txt
 else
@@ -20,5 +22,6 @@ fi
 
 # Check if anonymous login is allowed on FTP
 while read Host;
+do
    wget -m --no-passive ftp://anonymous:anonymous@$Host
 done < TargetHosts.txt
