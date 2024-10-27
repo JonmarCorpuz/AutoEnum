@@ -14,8 +14,6 @@ ALWAYS_TRUE=true
 # Regex
 Integer='^[0-9]+$'
 
-Replace="/"
-
 ########################################### OVERVIEW ############################################
 
 echo '''                                                                                              
@@ -41,19 +39,24 @@ if [ -s ScannedHosts.txt ]; then
         #
         if ! cat TargetHosts.txt | grep -q $Host;
         then
-            echo "LMAO"
             echo $Host >> TargetHosts.txt
         fi
     done < ScannedHosts.txt
 else
     # The file is empty.
-    echo "NAH" && exit
+    echo -e "${YELLOW}[FTP]${WHITE} No targets listening for FTP was found" && echo ""
 fi
 
 # Check if anonymous login is allowed on FTP
 while read Host;
 do
-   wget -m --no-passive ftp://anonymous:anonymous@$Host
-
-   mv $Host Loot/
+    #
+    wget -m --no-passive ftp://anonymous:anonymous@$Host
+    
+    #
+    mv $Host Loot/
 done < TargetHosts.txt
+
+# Cleanup
+rm ScannedHosts.txt
+rm TargetHosts.txt
