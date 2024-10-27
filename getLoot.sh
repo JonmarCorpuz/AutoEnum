@@ -32,6 +32,7 @@ Ybmmmdd
 cat ./Outputs/grep*.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" >> ScannedHosts.txt
 
 #
+touch TargetHosts.txt
 if [ -s ScannedHosts.txt ]; then
     # The file is not-empty.
     while read Host;
