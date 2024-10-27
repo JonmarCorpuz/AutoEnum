@@ -44,7 +44,7 @@ if [ -s ScannedHosts.txt ]; then
     done < ScannedHosts.txt
 else
     # The file is empty.
-    echo -e "${YELLOW}[FTP]${WHITE} No targets listening for FTP was found" && echo ""
+    echo -e "${YELLOW}[FTP]${WHITE} Nmap scanned 0 targets." && echo ""
 fi
 
 # Check if anonymous login is allowed on FTP
@@ -67,5 +67,6 @@ done < TargetHosts.txt
 
 # Cleanup
 echo -e "${YELLOW}[WARNING]${WHITE} Removing temporary files"
+
 rm ScannedHosts.txt
 rm TargetHosts.txt
