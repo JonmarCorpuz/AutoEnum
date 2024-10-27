@@ -2,4 +2,10 @@
 
 # Check if anonymous login is allowed on FTP
 
-wget -m --no-passive ftp://anonymous:anonymous@<TARGET_IP>
+if grep -q $TargetAddress 
+then 
+   echo "OK"
+#   wget -m --no-passive ftp://anonymous:anonymous@<TARGET_IP>
+else
+   echo "NOT OK"
+fi
