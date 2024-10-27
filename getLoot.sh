@@ -1,5 +1,5 @@
 #
-cat ./Outputs/grep*.txt | grep -q "Host" > ScannedHosts.txt
+cat ./Outputs/grep*.txt | grep "Host" > ScannedHosts.txt
 
 if [ -s ScannedHosts.txt ]; then
     # The file is not-empty.
