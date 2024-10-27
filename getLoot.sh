@@ -17,7 +17,7 @@ Integer='^[0-9]+$'
 ########################################### OVERVIEW ############################################
 
 echo '''                                                                                              
-                   mm    7MMF                          mm    
+                   mm    7MMF                           mm    
                    MM     MM                            MM    
  .PYbbmmm .gPPYa mmMMmm   MM         ,pWwWq.   ,pWwWq.mmMMmm  
 :MI  I8  ,M    Yb  MM     MM        6W     Wb 6W     Wb MM    
@@ -57,11 +57,11 @@ do
     then
         #
         wget -m --no-passive ftp://anonymous:anonymous@$Host &> /dev/null
-        echo -e "${GREEN}[FTP]${WHITE} Some files were extracted from $Host."
+        echo -e "${GREEN}[SUCCESS]${WHITE} Some files were extracted from $Host."
         #
         mv $Host Loot/
     else
-        echo -e "${RED}[FTP]${WHITE} FTP wasn't detected on $Host." 
+        echo -e "${RED}[ERROR]${WHITE} FTP wasn't detected on $Host." 
     fi
 done < TargetHosts.txt
 
