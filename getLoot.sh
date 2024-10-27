@@ -24,4 +24,6 @@ fi
 while read Host;
 do
    wget -m --no-passive ftp://anonymous:anonymous@$Host
+
+   mv $Host Loot/
 done < TargetHosts.txt
