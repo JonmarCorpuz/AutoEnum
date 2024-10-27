@@ -1,18 +1,24 @@
-# Check if FTP port is listening
+#
 cat ./Outputs/grep*.txt | grep -q "Host" > ScannedHosts.txt
 
 if [ -s ScannedHosts.txt ]; then
-        # The file is not-empty.
-      
+    # The file is not-empty.
+    # awk "{print $2}" ScannedHosts.txt
+    while read Host;
+    do
+        HostAddress=$(echo $Host | awk  "{print $2}")
+
+        if ! cat ScannedHosts.txt | grep -q $HostAddress;
+        then
+            echo "$HostAddress" > TargetHosts.txt
+        fi
+    done < ScannedHosts.txt
 else
-        # The file is empty.
+    # The file is empty.
+    echo "NAH"
 fi
 
 # Check if anonymous login is allowed on FTP
-if grep -q "Anonymous FTP login allowed";
-then 
-   echo "OK"
-#   wget -m --no-passive ftp://anonymous:anonymous@<TARGET_IP>
-else
-   echo "NOT OK"
-fi
+while read Host;
+   wget -m --no-passive ftp://anonymous:anonymous@$Host
+done < TargetHosts.txt
