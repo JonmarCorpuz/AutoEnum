@@ -10,7 +10,7 @@ if [ -s ScannedHosts.txt ]; then
 
         if ! cat ScannedHosts.txt | grep -q $HostAddress;
         then
-            echo "$HostAddress" > TargetHosts.txt
+            echo "$HostAddress" >> TargetHosts.txt
         fi
     done < ScannedHosts.txt
 else
