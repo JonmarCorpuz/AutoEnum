@@ -66,7 +66,7 @@ do
 done < TargetHosts.txt
 
 # Cleanup
-echo "" && echo -e "${YELLOW}[WARNING]${WHITE} Cleaning up."
-
 rm ScannedHosts.txt
 rm TargetHosts.txt
+
+echo "" && echo -e "${GREEN}[SUCCESS]${WHITE} getLoot was successfully executed." && echo ""
