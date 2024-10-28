@@ -7,9 +7,16 @@
   MMmmMM      MM    MM  MM    MM    MM    MM    MM MM       M   MM     MM    MM    MM   MM     MM ,M'   Yb 8I   `" 
   MM   Y  ,   MM    MM  MM    MM    MM    MM    MM MM       M   MM     MM    MM    MM   MM     MM 8M"""""" `YMMMa. 
   MM     ,M   MM    MM  MM    MM    MM    MM    MM YM.     ,M   MM     MM    MM    MM   MM     MM YM.    , L.   I8 
-.JMMmmmmMMM .JMML  JMML.`Mbod"YML..JMML  JMML  JMML.`bmmmmd"'   `Mbmo.JMML..JMML..JMML. `Mbmo.JMML.`Mbmmd' M9mmmP'     
+.JMMmmmmMMM .JMML  JMML.`Mbod"YML..JMML  JMML  JMML.`bmmmmd"'   `Mbmo.JMML..JMML..JMML. `Mbmo.JMML.`Mbmmd' M9mmmP'
+(Georgia 11 font)   
 ```
 
-(Georgia 11 font)
+EnumUtilities is a central repository containing various automated tools that help authorized security professionals perform digital reconnaissance.
 
-EnumUtilities (Enumeration Utilities) serves as a general automated toolkit that penetration testers can use to enumerate various resources and information during the reconnaissance phase of their penetration test.
+# EnumUtilities Tools
+
+## pScan
+
+## dScan
+
+## getLoot
