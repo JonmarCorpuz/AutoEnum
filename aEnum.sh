@@ -74,13 +74,13 @@ echo "target=$target" > target.env
 
 # ==== PORT SCAN ============================================
 echo "" && echo -e "${YELLOW}[NOTICE]${WHITE} Scanning for open ports."
-./Scripts/1-portScan.sh
+./Scripts/portScan.sh
 
 # ==== DIRECTORY SCAN =======================================
 if wget --spider $target &> /dev/null; 
 then
   echo -e "${YELLOW}[NOTICE]${WHITE} Scanning for hidden directories."
-  ./Scripts/2-directoryScan.sh
+  ./Scripts/directoryScan.sh
 else
   echo -e "${RED}[ERROR]${WHITE} No web server was found running on ${target}" && echo ""
 fi
@@ -89,7 +89,7 @@ fi
 
 #if 
 #then
-#  ./Scripts/3-ftpEnumeration.sh
+#  ./Scripts/ftpEnumeration.sh
 #fi
 
 # ==== FTP ENUMERATION ======================================
