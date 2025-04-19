@@ -1,6 +1,6 @@
 # aEnum Overview
 
-`Automatic Enumeration` is a script that helps automatically tries to collect and retrieve various pieces of information from a target machine during red team operations (*Please note that this tool was made for educational purposes only and should only be tested on machines that you have permission to target*)
+`Automatic Enumeration` is a command line utility that automatically tries to collect and retrieve various pieces of information from a target machine during red team operations (*Please note that this tool was made for educational purposes only and should only be tested on machines that you have permission to target*)
 
 # Scripts
 
