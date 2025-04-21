@@ -18,8 +18,8 @@ fi
 nmap $target -sV -sC -T4 -p- --min-rate=1000 -oN $target-portScan.txt -oG grep.$target-portScan.txt
 
 #
-mv $target-portScan.txt ./Outputs 
-mv grep.$target-portScan.txt ./Outputs
+mv $target-portScan.txt ./Output
+mv grep.$target-portScan.txt ./Output
  
 #
 echo -e "${GREEN}[SUCCESS]${WHITE} Port scan complete." && echo ""
