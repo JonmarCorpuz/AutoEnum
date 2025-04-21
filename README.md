@@ -4,7 +4,7 @@
 
 # Scripts
 
-| [portScan.sh](https://github.com/JonmarCorpuz/aEnum/blob/main/Scripts/1-portScan.sh) | [directoryScan.sh](https://github.com/JonmarCorpuz/aEnum/blob/main/Scripts/2-directoryScan.sh) |
+| [portScan.sh](https://github.com/JonmarCorpuz/aEnum/blob/main/Scripts/1-portScan.sh) | [directoryScan.sh](https://github.com/JonmarCorpuz/aEnum/blob/main/Scripts/2-directoryScan.sh) | [ftpEnumeration.sh](https://github.com/JonmarCorpuz/aEnum/blob/main/Scripts/3-ftpEnumeration.sh) | [whoisScan.sh](https://github.com/JonmarCorpuz/aEnum/blob/main/Scripts/4-whoisScan.sh) | [vulnerabilityScan.sh](https://github.com/JonmarCorpuz/aEnum/blob/main/Scripts/5-vulnerabilityScan.sh) |
 
 # Contributors
 
