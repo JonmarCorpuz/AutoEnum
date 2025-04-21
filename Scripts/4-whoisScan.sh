@@ -13,5 +13,5 @@ then
   echo -e "${GREEN}[NOTICE]${WHITE} whois was successfully installed." && echo ""
 fi
 
-whois $target > whois-$target.txt 
-mv whois-$target.txt ./Output
+whois $target > $target-whoisScan.txt 
+mv $target-whoisScan.txt  ./Output
